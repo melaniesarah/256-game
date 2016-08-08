@@ -40,6 +40,10 @@ Game.prototype.move = function(direction){
 
 }
 
+Game.prototype.transpose = function(board){
+  return board[0].map(function (_, i) { return board.map(function (r) { return r[i]; }); });
+}
+
 function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
 }
