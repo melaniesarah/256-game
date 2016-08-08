@@ -1,5 +1,10 @@
 var Game = function(boardString) {
-  var boardArray = typeof boardString.split('') !== 'undefined' ? boardString : this.generateBoard();
+  var boardArray;
+  if (typeof boardString !== 'undefined') {
+    boardArray = boardString.split('');
+  } else {
+    boardArray = this.generateBoard();
+  }
   this.boardHash = this.toHash(boardArray);
 }
 
@@ -33,4 +38,5 @@ Game.prototype.generateBoard = function() {
 function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
 }
+
 
