@@ -54,6 +54,7 @@ game = new Game();
 console.log(game.nestedArray());
 console.log(game.toHash());
 
+
 // move logic - start with swipe right
 // start with the first row
 //  if number on far right side is non-zero, leave in place
