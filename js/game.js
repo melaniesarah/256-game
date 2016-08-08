@@ -1,6 +1,6 @@
 var Game = function(boardString) {
-  var boardString = typeof boardString !== 'undefined' ? boardString : this.generateBoard();
-  this.boardHash = this.toHash(boardString);
+  var boardArray = typeof boardString.split('') !== 'undefined' ? boardString : this.generateBoard();
+  this.boardHash = this.toHash(boardArray);
 }
 
 Game.prototype.generateBoard = function() {
@@ -21,7 +21,7 @@ Game.prototype.generateBoard = function() {
 
  Game.prototype.toHash = function(boardArray) {
    var BoardHash = {};
-   BoardHash['a'] = boardArray[i];
+   BoardHash['a'] = boardArray[0];
    var c = 'a'
     for (i=1; i<=15; i++) {
       c = nextChar(c);
@@ -33,3 +33,6 @@ Game.prototype.generateBoard = function() {
 function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
 }
+
+game = new Game('0000202000000000')
+console.log(game.boardHash);
