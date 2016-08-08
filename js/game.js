@@ -30,6 +30,10 @@ Game.prototype.generateBoard = function() {
    return BoardHash;
 }
 
+Game.prototype.move = function(direction){
+
+}
+
 function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
 }
