@@ -34,5 +34,3 @@ function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
 }
 
-game = new Game('0000202000000000')
-console.log(game.boardHash);
