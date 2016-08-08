@@ -55,10 +55,7 @@ console.log(game.nestedArray());
 console.log(game.toHash());
 
 
-// move logic - start with swipe right
-// start with the first row
-//  if number on far right side is non-zero, leave in place
-// else shift all numbers over one place, put a zero at the far left side and move on to 2nd position
+
 
 
 
