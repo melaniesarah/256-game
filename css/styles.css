@@ -1,0 +1,18 @@
+body{
+	background-color: green;
+}
+
+.center{
+	text-align: center;
+}
+
+.container{
+	padding: 30px;
+}
+
+.box{
+	background-color: blue;
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+}
