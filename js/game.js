@@ -40,6 +40,10 @@ Game.prototype.move = function(direction){
 
 }
 
+Game.prototype.transpose = function(board){
+
+}
+
 function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
 }
