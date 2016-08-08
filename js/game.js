@@ -47,34 +47,38 @@ Game.prototype.generateBoard = function() {
 }
 
 Game.prototype.move = function(direction){
-  // var storageArray = this.nestedArray();
+
+  // transpose array so that the move is shifting always to the right
+
+  // shift all occupied spaces to the right
+  this.nestedArray = this.shifter();
+}
+
+Game.prototype.shifter = function() {
   var tempArray = this.nestedArray();
-  if (direction === 'right') {
-    // start with the first row
-    console.log(this.nestedArray());
-    for (i=0; i<=3; i++) {
-      var count = 0;
-      while (tempArray[i][3] === 0 && count < 4) {
-        tempArray[i][3] = tempArray[i][2];
-        tempArray[i][2] = tempArray[i][1];
-        tempArray[i][1] = tempArray[i][0];
-        tempArray[i][0] = 0;
-        count += 1;
-      }
-      count = 0;
-      while (tempArray[i][2] === 0 && count < 3) {
-        tempArray[i][2] = tempArray[i][1];
-        tempArray[i][1] = tempArray[i][0];
-        tempArray[i][0] = 0;
-        count += 1;
-      }
-      if (tempArray[i][1] === 0) {
-        tempArray[i][1] = tempArray[i][0];
-        tempArray[i][0] = 0;
-      }
-    console.log(tempArray);
+  for (i=0; i<=3; i++) {
+    var count = 0;
+    while (tempArray[i][3] === 0 && count < 4) {
+      tempArray[i][3] = tempArray[i][2];
+      tempArray[i][2] = tempArray[i][1];
+      tempArray[i][1] = tempArray[i][0];
+      tempArray[i][0] = 0;
+      count += 1;
     }
+    count = 0;
+    while (tempArray[i][2] === 0 && count < 3) {
+      tempArray[i][2] = tempArray[i][1];
+      tempArray[i][1] = tempArray[i][0];
+      tempArray[i][0] = 0;
+      count += 1;
+    }
+    if (tempArray[i][1] === 0) {
+      tempArray[i][1] = tempArray[i][0];
+      tempArray[i][0] = 0;
+    }
+    console.log(tempArray);
   }
+  return tempArray;
 }
 
 function nextChar(c) {
