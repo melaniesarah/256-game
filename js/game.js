@@ -1,14 +1,6 @@
-
-
 var Game = function(boardString) {
-  // generate 2 random numbers of either 4 or 2
-  console.log(boardString);
   var boardString = typeof boardString !== 'undefined' ? boardString : this.generateBoard();
-  this.board = boardString;
-}
-
-Game.prototype.toString = function() {
-
+  this.boardHash = this.toHash(boardString);
 }
 
 Game.prototype.generateBoard = function() {
@@ -24,23 +16,20 @@ Game.prototype.generateBoard = function() {
     index = Math.floor(Math.random() * 16);
     BoardArray[index] = number;
    }
+   return BoardArray;
+ }
 
-   // convert Board Array to Hash
+ Game.prototype.toHash = function(boardArray) {
    var BoardHash = {};
-   BoardHash['a'] = BoardArray[i];
+   BoardHash['a'] = boardArray[i];
    var c = 'a'
     for (i=1; i<=15; i++) {
       c = nextChar(c);
-      BoardHash[c] = BoardArray[i];
+      BoardHash[c] = boardArray[i];
    }
-  return BoardHash;
+   return BoardHash;
 }
 
 function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
 }
-
-
-
-game = new Game();
-console.log(game.board);
