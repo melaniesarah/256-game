@@ -6,7 +6,7 @@ var Game = function(boardString) {
     boardArray = this.generateBoard();
   }
   this.boardArray = boardArray;
-  this.boardHash = this.toHash(boardArray);
+  this.boardHash = this.toHash();
 }
 
 Game.prototype.generateBoard = function() {
@@ -25,13 +25,23 @@ Game.prototype.generateBoard = function() {
    return boardArray;
  }
 
- Game.prototype.toHash = function(boardArray) {
+ Game.prototype.nestedArray = function() {
+  var nestedArray = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+  for (i=0; i<=3; i++) {
+    for (j=0; j<=3; j++) {
+      nestedArray[i][j] = this.boardArray[i*4+j];
+    }
+   }
+  return nestedArray;
+ }
+
+ Game.prototype.toHash = function() {
    var boardHash = {};
-   boardHash['a'] = boardArray[0];
+   boardHash['a'] = this.boardArray[0];
    var c = 'a'
     for (i=1; i<=15; i++) {
       c = nextChar(c);
-      boardHash[c] = boardArray[i];
+      boardHash[c] = this.boardArray[i];
    }
    return boardHash;
 }
@@ -39,5 +49,15 @@ Game.prototype.generateBoard = function() {
 function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
 }
+
+game = new Game();
+console.log(game.nestedArray());
+console.log(game.toHash());
+
+// move logic - start with swipe right
+// start with the first row
+//  if number on far right side is non-zero, leave in place
+// else shift all numbers over one place, put a zero at the far left side and move on to 2nd position
+
 
 
