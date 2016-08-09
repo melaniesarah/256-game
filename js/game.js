@@ -5,13 +5,7 @@ var Game = function(boardString) {
   } else {
     boardArray = this.generateBoard();
   }
-<<<<<<< HEAD
-  this.boardArray = boardArray;
-  this.boardHash = this.toHash(boardArray);
-=======
   this.array = this.nestedArray(boardArray);
-
->>>>>>> 8a55d8a33d16d2a65c531808e2097c815895b876
 }
 
 Game.prototype.generateBoard = function() {
@@ -27,20 +21,6 @@ Game.prototype.generateBoard = function() {
     index = Math.floor(Math.random() * 16);
     boardArray[index] = number;
    }
-<<<<<<< HEAD
-   return boardArray;
- }
-
- Game.prototype.toHash = function(boardArray) {
-   var boardHash = {};
-   boardHash['a'] = boardArray[0];
-   var c = 'a'
-    for (i=1; i<=15; i++) {
-      c = nextChar(c);
-      boardHash[c] = boardArray[i];
-   }
-   return boardHash;
-=======
    return boardArray; // returns original board as an array
  }
 
@@ -79,7 +59,6 @@ Game.prototype.shifter = function() {
     }
   }
   return tempArray;
->>>>>>> 8a55d8a33d16d2a65c531808e2097c815895b876
 }
 
 
