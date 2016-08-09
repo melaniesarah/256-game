@@ -8,6 +8,7 @@ var Game = function(boardString) {
   this.array = this.nestedArray(boardArray);
 }
 
+
 Game.prototype.generateBoard = function() {
   var myArray = [2,4];
   var number;
@@ -22,6 +23,14 @@ Game.prototype.generateBoard = function() {
     boardArray[index] = number;
    }
    return boardArray; // returns original board as an array
+ }
+
+
+Game.prototype.flatten = function(boardArray){
+  flattenBoard = [] 
+  for(i=0;i<boardArray.length;i++)
+    flattenBoard = flattenBoard.concat(boardArray[i])
+  return flattenBoard
  }
 
 Game.prototype.nestedArray = function(linearArray) {
@@ -79,6 +88,9 @@ Game.prototype.shiftRight = function(board){
   if(new_arr[3] == 0 ){
     new_arr.pop()
     new_arr.unshift(0)
+  }
+  if(new_arr[1] == 0 ){
+    new_arr.splice(1,1)
   }
   switch(new_arr.length){
     case 3:
