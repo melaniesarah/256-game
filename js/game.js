@@ -89,6 +89,9 @@ Game.prototype.shiftRight = function(board){
     new_arr.pop()
     new_arr.unshift(0)
   }
+  if(new_arr[2] == 0 ){
+    new_arr.pop()
+  }
   if(new_arr[1] == 0 ){
     new_arr.splice(1,1)
   }
