@@ -114,4 +114,11 @@ Game.prototype.shifter = function() {
 // console.log(game.move('right'));
 // console.log(game.move('right'));
 
+Game.prototype.transpose = function(board){
+  return board[0].map(function (_, i) { return board.map(function (r) { return r[i]; }); });
+}
+
+
+
+
 
