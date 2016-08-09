@@ -63,6 +63,43 @@ Game.prototype.shifter = function() {
 }
 
 
+
+Game.prototype.shiftRight = function(board){
+  //only works on one array
+  new_arr = []
+  for(i=board.length - 1;i >= 0 ;i--){
+    if( board[i - 1] == board[i] ){
+       new_arr.unshift(board[i - 1] + board[i])
+       board[i - 1] = 0 
+    }else{
+       if(board[i] != 0){
+         new_arr.unshift(board[i])
+       }
+    }
+  }
+  if(new_arr[3] == 0 ){
+    new_arr.pop()
+    new_arr.unshift(0)
+  }
+  switch(new_arr.length){
+    case 3:
+      new_arr.unshift(0)
+      break;
+    case 2:
+      new_arr.unshift(0)
+      new_arr.unshift(0)
+      break;
+    case 1:
+      new_arr.unshift(0)
+      new_arr.unshift(0)
+      new_arr.unshift(0)
+      break;
+    default:
+     break;
+  }
+  return new_arr
+}
+
 // Game.prototype.move = function(direction){
 //   // transpose array so that the move is shifting always to the right
 //   console.log("in the move function at the beginning the shifter creates");
@@ -113,6 +150,7 @@ Game.prototype.shifter = function() {
 // console.log(game.move('right'));
 // console.log(game.move('right'));
 // console.log(game.move('right'));
+
 
 Game.prototype.transpose = function(board){
   return board[0].map(function (_, i) { return board.map(function (r) { return r[i]; }); });
