@@ -67,11 +67,20 @@ Game.prototype.swipeLeft = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
   this.reverseRows();
+
+  this.swipe();
+
+  this.reverseRows();
+  this.matrixToBoard();
 }
 
 Game.prototype.swipeRight = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
+
+  this.swipe();
+
+  this.matrixToBoard();
 }
 
 Game.prototype.swipeUp = function() {
@@ -79,12 +88,23 @@ Game.prototype.swipeUp = function() {
   this.boardToMatrix();
   this.transpose();
   this.reverseRows();
+
+  this.swipe();
+
+  this.reverseRows();
+  this.transpose();
+  this.matrixToBoard();
 }
 
 Game.prototype.swipeDown = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
   this.transpose();
+
+  this.swipe();
+
+  this.transpose();
+  this.matrixToBoard();
 }
 
 Game.prototype.transpose = function() {
@@ -95,6 +115,8 @@ Game.prototype.transpose = function() {
       })
     });
 }
+
+
 
 
 
