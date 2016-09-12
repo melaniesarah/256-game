@@ -110,10 +110,10 @@ Game.prototype.swipeDown = function() {
 Game.prototype.transpose = function() {
   var array = this.boardMatrix;
   this.boardMatrix = array[0].map(function(col, i) {
-      return array.map(function(row) {
-          return row[i]
-      })
-    });
+    return array.map(function(row) {
+        return row[i]
+    })
+  });
 }
 
 
