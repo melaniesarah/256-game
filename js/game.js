@@ -1,13 +1,40 @@
 var Game = function(boardString) {
-  // if board string provided,
+  var board;
+  if (boardString == null) {
+    board = randomBoard();
+  }
+ else {
+    if (boardString.length == 31) {
+      boardArray = boardString.split(",");
+      boardArray.forEach(function(numString) {
+        board.push(parseInt(numString));
+      })
+    }
+    else {
+      board = randomBoard();
+    }
+  }
+  return board
+ }
 
-  if (boardString.length == 16) {
-    // then use board string
+ var randomBoard = function() {
+  var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  var values = [2,4];
+  var randLocation1 = Math.floor(Math.random() * 16);
+  var randLocation2 = Math.floor(Math.random() * 16);
+
+  while (randLocation1 == randLocation2) {
+    randLocation2 = Math.floor(Math.random() * 16);
   }
-  else {
-    // generate random board
-  }
-}
+
+    board[randLocation1] = values[Math.floor(Math.random() * 2)];
+    board[randLocation2] = values[Math.floor(Math.random() * 2)];
+
+    return board
+ }
+
+
+
 
 Game.prototype.newTile = function(board) {
   // board as an array of arrays
