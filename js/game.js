@@ -17,7 +17,6 @@ var Game = function(boardString) {
   }
  }
 
-
  var randomBoard = function() {
   var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   var values = [2,4];
@@ -47,27 +46,27 @@ Game.prototype.newTile = function() {
 }
 
 
-Game.prototype.swipeLeft = function(board) {
+Game.prototype.swipeLeft = function() {
 
 }
 
-Game.prototype.swipeRight = function(board) {
+Game.prototype.swipeRight = function() {
 
 }
 
-Game.prototype.swipeUp = function(board) {
+Game.prototype.swipeUp = function() {
 
 }
 
-Game.prototype.swipeDown = function(board) {
+Game.prototype.swipeDown = function() {
 
 }
 
-Game.prototype.transpose = function(board) {
+Game.prototype.transpose = function() {
 
 }
 
-Game.prototype.reverse = function(board) {
+Game.prototype.reverse = function() {
 
 }
 
