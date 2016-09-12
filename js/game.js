@@ -70,9 +70,3 @@ Game.prototype.reverse = function(board) {
 
 
 
-
-
-
-
-
-
