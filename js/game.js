@@ -1,21 +1,22 @@
 var Game = function(boardString) {
-  var board;
   if (boardString == null) {
-    board = randomBoard();
+    this.board = randomBoard();
   }
  else {
     if (boardString.length == 31) {
+      var board = [];
       boardArray = boardString.split(",");
       boardArray.forEach(function(numString) {
         board.push(parseInt(numString));
       })
+      this.board = board;
     }
     else {
-      board = randomBoard();
+      this.board = randomBoard();
     }
   }
-  return board
  }
+
 
  var randomBoard = function() {
   var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -33,16 +34,18 @@ var Game = function(boardString) {
     return board
  }
 
+Game.prototype.newTile = function() {
+  var values = [2,4];
+  var randLocation = Math.floor(Math.random() * 16);
 
+  while (randLocation != 0) {
+    randLocation = Math.floor(Math.random() * 16);
+  }
 
-
-Game.prototype.newTile = function(board) {
-  // board as an array of arrays
-  // pick a random spot where there is a 0
-  // pick a 2 or 4 randomly
-  // place number in random spot
-  // return board
+  this.board[randLocation] = values[Math.floor(Math.random() * 2)];
+  return this.board;
 }
+
 
 Game.prototype.swipeLeft = function(board) {
 
