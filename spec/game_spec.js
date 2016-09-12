@@ -40,32 +40,32 @@ describe("Should be able to swipe right ", function() {
   });
 
   it("board compress to the right 1", function() {
-  	 game = new Game(test1);
+     game = new Game(test1);
      expect(game.swipeRight()).toEqual(array1Solution);
   });
 
   it("board compress to the right 2", function() {
-  	 game = new Game(test2);
+     game = new Game(test2);
      expect(game.swipeRight()).toEqual(array2Solution);
   });
 
   it("board compress to the right 3", function() {
-  	 game = new Game(test3);
+     game = new Game(test3);
      expect(game.swipeRight()).toEqual(array3Solution);
   });
 
   it("board compress to the right 4", function() {
-  	 game = new Game(test4);
+     game = new Game(test4);
      expect(game.swipeRight()).toEqual(array4Solution);
   });
 
   it("board compress to the right 5", function() {
-  	 game = new Game(test5);
+     game = new Game(test5);
      expect(game.swipeRight()).toEqual(array5Solution);
   });
 
   it("board compress to the right 6", function() {
-  	 game = new Game(test6);
+     game = new Game(test6);
      expect(game.swipeRight()).toEqual(array6Solution);
   });
 
@@ -85,7 +85,6 @@ describe("Should be reverse an array ", function() {
 
     test4 = "2,2,4,4,0,0,0,0,0,0,0,0,0,0,0,0";
     array1Solution = [4,4,2,2,0,0,0,0,0,0,0,0,0,0,0,0];
-    
   	});
 
 	it("board can reverse the array 1", function() {
@@ -108,9 +107,7 @@ describe("Should be reverse an array ", function() {
 		game = new Game(test4);
 		expect(game.reverse()).toEqual(array4Solution);
 	});
-
 });
-
 
 
 describe("Should be able to swipe left ", function() {
@@ -135,32 +132,32 @@ describe("Should be able to swipe left ", function() {
   });
 
   it("board compress to the right 1", function() {
-  	 game = new Game(test1);
+     game = new Game(test1);
      expect(game.swipeRight()).toEqual(array1Solution);
   });
 
   it("board compress to the right 2", function() {
-  	 game = new Game(test2);
+     game = new Game(test2);
      expect(game.swipeRight()).toEqual(array2Solution);
   });
 
   it("board compress to the right 3", function() {
-  	 game = new Game(test3);
+     game = new Game(test3);
      expect(game.swipeRight()).toEqual(array3Solution);
   });
 
   it("board compress to the right 4", function() {
-  	 game = new Game(test4);
+     game = new Game(test4);
      expect(game.swipeRight()).toEqual(array4Solution);
   });
 
   it("board compress to the right 5", function() {
-  	 game = new Game(test5);
+     game = new Game(test5);
      expect(game.swipeRight()).toEqual(array5Solution);
   });
 
   it("board compress to the right 6", function() {
-  	 game = new Game(test6);
+     game = new Game(test6);
      expect(game.swipeRight()).toEqual(array6Solution);
   });
 });
