@@ -54,8 +54,30 @@ Game.prototype.boardToMatrix = function() {
   }
 }
 
+
 Game.prototype.matrixToBoard = function() {
   this.board = [].concat.apply([], this.boardMatrix )
+
+}
+
+Game.prototype.reverseRows = function() {
+  var tempMatrix = [];
+  this.boardMatrix.forEach(function(row) {
+    tempMatrix.push(row.reverse())
+  })
+  this.boardMatrix = tempMatrix
+}
+
+
+Game.prototype.swipeLeft = function() {
+  this.tempBoard = this.board;
+  this.boardToMatrix();
+  this.reverseRows();
+
+  this.swipe();
+
+  this.reverseRows();
+  this.matrixToBoard();
 }
 
 Game.prototype.swipeRight = function() {
@@ -87,31 +109,39 @@ Game.prototype.swipeRight = function() {
         }
     })
   })
-  return newBoard
+  this.board = newBoard
+  return this.board
 }
 
 Game.prototype.swipeUp = function() {
+  this.tempBoard = this.board;
+  this.boardToMatrix();
+  this.transpose();
+  this.reverseRows();
 
+  this.swipe();
+
+  this.reverseRows();
+  this.transpose();
+  this.matrixToBoard();
 }
 
 Game.prototype.swipeDown = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
   this.transpose();
+
+  this.swipe();
+
+  this.transpose();
+  this.matrixToBoard();
 }
 
 Game.prototype.transpose = function() {
-  var newArray = this.boardMatrix[0].map(function(col, i) {
-    return this.boardMatrix.map(function(row) {
-      return row[i]
+  var array = this.boardMatrix;
+  this.boardMatrix = array[0].map(function(col, i) {
+    return array.map(function(row) {
+        return row[i]
     })
-    this.boardMatrix = newArray
   });
 }
-
-
-Game.prototype.reverse = function() {
-
-}
-
-
