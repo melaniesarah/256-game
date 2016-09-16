@@ -1,11 +1,11 @@
 $(document).ready(function() {
-
 });
 
 function keyDown(e) {
 	switch(e.keyCode){
 		case 97:
 			console.log("A pressed")
+			game.
 			break;
 		case 119:
 			console.log("W pressed")
@@ -18,7 +18,7 @@ function keyDown(e) {
 			break;
 		default:
        		console.log("Please use the 'A', 'W','D', or 'S' on the keyboard")
-	}	
+	}
 }
 
 function init(){
