@@ -80,36 +80,14 @@ Game.prototype.swipeLeft = function() {
   this.matrixToBoard();
 }
 
-Game.prototype.swipe = function() {
+Game.prototype.swipeRight = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
-  original_board = this.boardMatrix;
+  // console.log(this.boardMatrix);
 
-   original_board.forEach(function(row, i){
-      row.forEach(function(col, y){
-        if(row[y] == row[y + 1]){
-          row[y] = col + col
-          row[y + 1] = 0
-        }
-      })
-   })
-  newBoard = []
-  original_board.forEach(function(row, i){
-    arr = []
-    row.forEach(function(col, y){
-        if(col != 0){
-          arr.push(col)
-        
-        }else{
-          arr.unshift(0)
-        }
-        
-        if(arr.length == 4){
-          newBoard.push(arr)
-        }
-    })
-  })
-  this.board = newBoard
+  this.swipe();
+  // console.log(this.boardMatrix);
+
   this.matrixToBoard();
 }
 
@@ -137,6 +115,36 @@ Game.prototype.swipeDown = function() {
   this.matrixToBoard();
 }
 
+Game.prototype.swipe = function() {
+  original_board = this.boardMatrix;
+
+   original_board.forEach(function(row, i){
+      row.forEach(function(col, y){
+        if(row[y] == row[y + 1]){
+          row[y] = col + col
+          row[y + 1] = 0
+        }
+      })
+   })
+  newBoard = []
+  original_board.forEach(function(row, i){
+    arr = []
+    row.forEach(function(col, y){
+        if(col != 0){
+          arr.push(col)
+
+        }else{
+          arr.unshift(0)
+        }
+
+        if(arr.length == 4){
+          newBoard.push(arr)
+        }
+    })
+  })
+  this.boardMatrix = newBoard
+}
+
 Game.prototype.transpose = function() {
   var array = this.boardMatrix;
   this.boardMatrix = array[0].map(function(col, i) {
@@ -145,3 +153,18 @@ Game.prototype.transpose = function() {
     })
   });
 }
+
+// game = new Game();
+// // console.log(game.board);
+// console.log(game.board);
+// game.swipeRight();
+// console.log(game.board);
+// game.newTile();
+// console.log(game.board);
+// game.swipeRight();
+// console.log(game.board);
+// game.newTile();
+// console.log(game.board);
+// game.swipeLeft();
+console.log(game.board);
+
