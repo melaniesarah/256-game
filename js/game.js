@@ -80,7 +80,7 @@ Game.prototype.swipeLeft = function() {
   this.matrixToBoard();
 }
 
-Game.prototype.swipeRight = function() {
+Game.prototype.swipe = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
   original_board = this.boardMatrix;
@@ -110,7 +110,7 @@ Game.prototype.swipeRight = function() {
     })
   })
   this.board = newBoard
-  return this.board
+  this.matrixToBoard();
 }
 
 Game.prototype.swipeUp = function() {
