@@ -48,18 +48,46 @@ Game.prototype.newTile = function() {
 }
 
 Game.prototype.boardToMatrix = function() {
+  this.boardMatrix = [];
   for (i=0; i<4; i++) {
     this.boardMatrix.push(this.tempBoard.slice((i*4), ((i+1)*4)));
   }
 }
 
-
-
-
+Game.prototype.matrixToBoard = function() {
+  this.board = [].concat.apply([], this.boardMatrix )
+}
 
 Game.prototype.swipeRight = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
+  original_board = this.boardMatrix;
+
+   original_board.forEach(function(row, i){
+      row.forEach(function(col, y){
+        if(row[y] == row[y + 1]){
+          row[y] = col + col
+          row[y + 1] = 0
+        }
+      })
+   })
+  newBoard = []
+  original_board.forEach(function(row, i){
+    arr = []
+    row.forEach(function(col, y){
+        if(col != 0){
+          arr.push(col)
+        
+        }else{
+          arr.unshift(0)
+        }
+        
+        if(arr.length == 4){
+          newBoard.push(arr)
+        }
+    })
+  })
+  return newBoard
 }
 
 Game.prototype.swipeUp = function() {
