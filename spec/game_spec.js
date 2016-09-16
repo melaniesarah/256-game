@@ -85,32 +85,29 @@ describe("Should be reverse an array ", function() {
 
     test4 = "2,2,4,4,0,0,0,0,0,0,0,0,0,0,0,0";
     array1Solution = [4,4,2,2,0,0,0,0,0,0,0,0,0,0,0,0];
-    
-    });
+  	});
 
-  it("board can reverse the array 1", function() {
-    game = new Game(test1);
-    expect(game.reverse()).toEqual(array1Solution);
-  });
+	it("board can reverse the array 1", function() {
+		game = new Game(test1);
+		expect(game.reverse()).toEqual(array1Solution);
+	});
 
 
-  it("board can reverse the array 2", function() {
-    game = new Game(test2);
-    expect(game.reverse()).toEqual(array2Solution);
-  });
+	it("board can reverse the array 2", function() {
+		game = new Game(test2);
+		expect(game.reverse()).toEqual(array2Solution);
+	});
 
-  it("board can reverse the array 3", function() {
-    game = new Game(test3);
-    expect(game.reverse()).toEqual(array3Solution);
-  });
+	it("board can reverse the array 3", function() {
+		game = new Game(test3);
+		expect(game.reverse()).toEqual(array3Solution);
+	});
 
-  it("board can reverse the array 4", function() {
-    game = new Game(test4);
-    expect(game.reverse()).toEqual(array4Solution);
-  });
-
+	it("board can reverse the array 4", function() {
+		game = new Game(test4);
+		expect(game.reverse()).toEqual(array4Solution);
+	});
 });
-
 
 
 describe("Should be able to swipe left ", function() {
