@@ -39,11 +39,9 @@ function keyDown(e) {
 	switch(e.keyCode){
 		case 97:
 			console.log("A pressed")
-<<<<<<< HEAD
 			game.swipeLeft();
 			game.newTile();
 			updateBoard(game.board);
-=======
 			game.
 >>>>>>> 451f9401d0ed236b512ba92201c8305c1d39f6e8
 			break;
