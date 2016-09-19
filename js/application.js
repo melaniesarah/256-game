@@ -1,5 +1,39 @@
 $(document).ready(function() {
+	game = new Game()
+	console.log(board)
+});
 
+
+
+
+function startBoard(){
+	var elements = document.getElementsByClassName('box');
+	for(i=0;i<elements.length; i++){
+		$(elements[i]).css('background-color', 'white')
+		$(elements[i]).html(board[i])
+	}
+}
+
+
+
+function updateBoard(board){
+	console.log(board)
+	var elements = document.getElementsByClassName('box');
+
+	for(i=0;i<elements.length; i++){
+		console.log(i)
+		console.log(elements[i])
+		$(elements[i]).css('background-color', 'white')
+		// console.log($(elements[i]).html())
+		console.log('break')
+		console.log(board[i])
+		$(elements[i]).html(board[i])
+		console.log('done')
+
+	}
+
+
+}
 });
 
 function keyDown(e) {
@@ -18,7 +52,7 @@ function keyDown(e) {
 			break;
 		default:
        		console.log("Please use the 'A', 'W','D', or 'S' on the keyboard")
-	}	
+	}
 }
 
 function init(){
