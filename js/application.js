@@ -1,9 +1,6 @@
 $(document).ready(function() {
-<<<<<<< HEAD
 	game = new Game()
 	console.log(game.board)
-=======
->>>>>>> 451f9401d0ed236b512ba92201c8305c1d39f6e8
 });
 
 
