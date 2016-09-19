@@ -1,21 +1,20 @@
 body{
-	background-color: green;
+  background-color: green;
 }
 
 .center{
-	text-align: center;
+  text-align: center;
 }
 
 .container{
-	padding: 30px;
+  padding: 2px;
 }
 
 .box{
-	background-color: white;
-	width: 150px;
-	height: 150px;
-	display: inline-block;
-	padding-top: 10px;
-
-    
+  background-color: blue;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  /*text-align: center;*/
+  /*vertical-align: center;*/
 }
