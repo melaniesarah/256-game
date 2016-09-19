@@ -89,6 +89,31 @@ Game.prototype.swipeRight = function() {
   this.matrixToBoard();
 }
 
+
+Game.prototype.swipeUp = function() {
+  this.tempBoard = this.board;
+  this.boardToMatrix();
+  this.transpose();
+  this.reverseRows();
+
+  this.swipe();
+
+  this.reverseRows();
+  this.transpose();
+  this.matrixToBoard();
+}
+
+Game.prototype.swipeDown = function() {
+  this.tempBoard = this.board;
+  this.boardToMatrix();
+  this.transpose();
+
+  this.swipe();
+
+  this.transpose();
+  this.matrixToBoard();
+}
+
 Game.prototype.swipe = function() {
   original_board = this.boardMatrix;
 
@@ -116,31 +141,7 @@ Game.prototype.swipe = function() {
         }
     })
   })
-  this.board = newBoard
-}
-
-Game.prototype.swipeUp = function() {
-  this.tempBoard = this.board;
-  this.boardToMatrix();
-  this.transpose();
-  this.reverseRows();
-
-  this.swipe();
-
-  this.reverseRows();
-  this.transpose();
-  this.matrixToBoard();
-}
-
-Game.prototype.swipeDown = function() {
-  this.tempBoard = this.board;
-  this.boardToMatrix();
-  this.transpose();
-
-  this.swipe();
-
-  this.transpose();
-  this.matrixToBoard();
+  this.boardMatrix = newBoard
 }
 
 Game.prototype.transpose = function() {
@@ -151,3 +152,19 @@ Game.prototype.transpose = function() {
     })
   });
 }
+
+
+// game = new Game();
+// // console.log(game.board);
+// console.log(game.board);
+// game.swipeRight();
+// console.log(game.board);
+// game.newTile();
+// console.log(game.board);
+// game.swipeRight();
+// console.log(game.board);
+// game.newTile();
+// console.log(game.board);
+// game.swipeLeft();
+// console.log(game.board);
+
