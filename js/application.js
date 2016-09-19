@@ -43,7 +43,6 @@ function keyDown(e) {
 			game.newTile();
 			updateBoard(game.board);
 			game.
->>>>>>> 451f9401d0ed236b512ba92201c8305c1d39f6e8
 			break;
 		case 119:
 			console.log("W pressed")
@@ -58,8 +57,8 @@ function keyDown(e) {
 		case 115:
 			console.log("S pressed")
 			break;
-		default:
-       		console.log("Please use the 'A', 'W','D', or 'S' on the keyboard")
+			default:
+      console.log("Please use the 'A', 'W','D', or 'S' on the keyboard")
 	}
 }
 
