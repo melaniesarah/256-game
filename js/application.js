@@ -21,14 +21,12 @@ function updateBoard(board){
 	var elements = document.getElementsByClassName('box');
 
 	for(i=0;i<elements.length; i++){
-		console.log(i)
-		console.log(elements[i])
 		$(elements[i]).css('background-color', 'white')
 		// console.log($(elements[i]).html())
-		console.log('break')
-		console.log(board[i])
-		$(elements[i]).html(board[i])
-		console.log('done')
+		// console.log('break')
+		// console.log(board[i])
+		$(elements[i]).html('<h1>' + board[i] + '</h1>')
+		// console.log('done')
 
 	}
 
@@ -40,22 +38,29 @@ function keyDown(e) {
 		case 97:
 			console.log("A pressed")
 			game.swipeLeft();
-			game.newTile();
 			updateBoard(game.board);
-			game.
+			game.newTile()
 			break;
 		case 119:
 			console.log("W pressed")
+			game.swipeUp();
+			updateBoard(game.board);
+			game.newTile()
 			break;
 		case 100:
 			console.log("D pressed")
 			game.swipeRight();
+			updateBoard(game.board);
+			game.newTile()
 			break;
 		case 114:
 			console.log("R pressed")
 			startBoard();
 		case 115:
 			console.log("S pressed")
+			game.swipeDown();
+			updateBoard(game.board);
+			game.newTile()
 			break;
 			default:
       console.log("Please use the 'A', 'W','D', or 'S' on the keyboard")
