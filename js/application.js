@@ -1,16 +1,16 @@
 $(document).ready(function() {
 	game = new Game()
-	console.log(board)
+	console.log(game.board)
 });
 
 
 
 
 function startBoard(){
-	var elements = document.getElementsByClassName('box');
+	var elements = document.getElementsByClassName('box')	;
 	for(i=0;i<elements.length; i++){
 		$(elements[i]).css('background-color', 'white')
-		$(elements[i]).html(board[i])
+		$(elements[i]).append(game.board[i])
 	}
 }
 
@@ -34,19 +34,25 @@ function updateBoard(board){
 
 
 }
-});
 
 function keyDown(e) {
 	switch(e.keyCode){
 		case 97:
 			console.log("A pressed")
+			game.swipeLeft();
+			game.newTile();
+			updateBoard(game.board);
 			break;
 		case 119:
 			console.log("W pressed")
 			break;
 		case 100:
 			console.log("D pressed")
+			game.swipeRight();
 			break;
+		case 114:
+			console.log("R pressed")
+			startBoard();
 		case 115:
 			console.log("S pressed")
 			break;

@@ -80,9 +80,16 @@ Game.prototype.swipeLeft = function() {
   this.matrixToBoard();
 }
 
-Game.prototype.swipe = function() {
+Game.prototype.swipeRight = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
+
+  this.swipe();
+
+  this.matrixToBoard();
+}
+
+Game.prototype.swipe = function() {
   original_board = this.boardMatrix;
 
    original_board.forEach(function(row, i){
@@ -99,18 +106,17 @@ Game.prototype.swipe = function() {
     row.forEach(function(col, y){
         if(col != 0){
           arr.push(col)
-        
+
         }else{
           arr.unshift(0)
         }
-        
+
         if(arr.length == 4){
           newBoard.push(arr)
         }
     })
   })
   this.board = newBoard
-  this.matrixToBoard();
 }
 
 Game.prototype.swipeUp = function() {
