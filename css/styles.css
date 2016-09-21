@@ -1,20 +1,19 @@
 body{
-	background-color: green;
+  background-color: snow;
 }
 
 .center{
-	text-align: center;
+  text-align: center;
 }
 
 .container{
-	padding: 2px;
+  padding: 2px;
 }
 
 .box{
-	background-color: blue;
-	width: 150px;
-	height: 150px;
-	display: inline-block;
+  background-color: blue;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
   /*text-align: center;*/
-  /*vertical-align: center;*/
 }

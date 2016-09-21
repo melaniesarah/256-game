@@ -1,74 +1,94 @@
 $(document).ready(function() {
-	game = new Game()
-	console.log(game.board)
+  game = new Game()
+  console.log(game.board)
+  startBoard();
 });
 
-
-
-
 function startBoard(){
-	var elements = document.getElementsByClassName('box')	;
-	for(i=0;i<elements.length; i++){
-		$(elements[i]).css('background-color', 'white')
-		$(elements[i]).append(game.board[i])
-	}
+  var elements = document.getElementsByClassName('box') ;
+  for(i=0;i<elements.length; i++){
+       if(game.board[i] == 0){
+          $(elements[i]).css('background-color', 'tan')  
+          $(elements[i]).append('<h1 style="color: tan;">' + game.board[i]+ '</h1>')
+       }else if(game.board[i] == 2){
+          $(elements[i]).css('background-color', 'green')
+          $(elements[i]).append('<h1 style="color: white;">' + game.board[i]+ '</h1>')
+       }else{
+          $(elements[i]).css('background-color', 'blue')
+          $(elements[i]).append('<h1 style="color: white;">' + game.board[i]+ '</h1>')
+       }
+  }
 }
 
-
-
 function updateBoard(board){
-	console.log(board)
-	var elements = document.getElementsByClassName('box');
+  console.log(board)
+  var elements = document.getElementsByClassName('box');
 
-	for(i=0;i<elements.length; i++){
-		$(elements[i]).css('background-color', 'white')
-		// console.log($(elements[i]).html())
-		// console.log('break')
-		// console.log(board[i])
-		$(elements[i]).html('<h1>' + board[i] + '</h1>')
-		// console.log('done')
-
-	}
-
-
+  for(i=0;i<elements.length; i++){
+    
+     if(game.board[i] == 0){
+          $(elements[i]).css('background-color', 'tan')  
+          $(elements[i]).html('<h1 style="color: tan;">' + board[i] + '</h1>')
+       }else if(game.board[i] == 2){
+          $(elements[i]).css('background-color', 'green')
+          $(elements[i]).html('<h1 style="color: white;">' + board[i] + '</h1>')
+       }else if(game.board[i] == 4){
+          $(elements[i]).css('background-color', 'blue')
+          $(elements[i]).html('<h1 style="color: white;">' + board[i] + '</h1>')
+       }else if(game.board[i] == 8){
+          $(elements[i]).css('background-color', 'grey')
+          $(elements[i]).html('<h1 style="color: white;">' + board[i] + '</h1>')
+       }else if(game.board[i] == 16){
+          $(elements[i]).css('background-color', 'red')
+          $(elements[i]).html('<h1 style="color: white;">' + board[i] + '</h1>')
+       }else if(game.board[i] == 32){
+          $(elements[i]).css('background-color', 'purple')
+          $(elements[i]).html('<h1 style="color: white;">' + board[i] + '</h1>')
+       }else if(game.board[i] == 64){
+          $(elements[i]).css('background-color', 'orange')
+          $(elements[i]).html('<h1 style="color: white;">' + board[i] + '</h1>')
+       }else if(game.board[i] == 256){
+          $(elements[i]).css('background-color', 'yellow')
+          $(elements[i]).html('<h1 style="color: black;">' + board[i] + '</h1>')
+       }else{
+        $(elements[i]).css('background-color', 'pink')
+       }
+    }
 }
 
 function keyDown(e) {
-	switch(e.keyCode){
-		case 97:
-			console.log("A pressed")
-			game.swipeLeft();
-			updateBoard(game.board);
-			game.newTile()
-			break;
-		case 119:
-			console.log("W pressed")
-			game.swipeUp();
-			updateBoard(game.board);
-			game.newTile()
-			break;
-		case 100:
-			console.log("D pressed")
-			game.swipeRight();
-			updateBoard(game.board);
-			game.newTile()
-			break;
-		case 114:
-			console.log("R pressed")
-			startBoard();
-		case 115:
-			console.log("S pressed")
-			game.swipeDown();
-			updateBoard(game.board);
-			game.newTile()
-			break;
-			default:
+  switch(e.keyCode){
+    case 97:
+      console.log("A pressed")
+      game.swipeLeft();
+      updateBoard(game.board);
+      game.newTile()
+      break;
+    case 119:
+      console.log("W pressed")
+      game.swipeUp();
+      updateBoard(game.board);
+      game.newTile()
+      break;
+    case 100:
+      console.log("D pressed")
+      game.swipeRight();
+      updateBoard(game.board);
+      game.newTile()
+      break;
+    case 115:
+      console.log("S pressed")
+      game.swipeDown();
+      updateBoard(game.board);
+      game.newTile()
+      break;
+    default:
       console.log("Please use the 'A', 'W','D', or 'S' on the keyboard")
-	}
+  }
 }
 
 function init(){
-	window.addEventListener("keypress", keyDown, false);
+  window.addEventListener("keypress", keyDown, false);
 }
 
 window.addEventListener('load', init, false);
