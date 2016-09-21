@@ -1,8 +1,8 @@
 $(document).ready(function() {
   game = new Game()
   console.log(game.board)
+  startBoard();
 });
-
 
 function startBoard(){
   var elements = document.getElementsByClassName('box') ;
@@ -19,8 +19,6 @@ function startBoard(){
        }
   }
 }
-
-
 
 function updateBoard(board){
   console.log(board)
@@ -55,10 +53,7 @@ function updateBoard(board){
        }else{
         $(elements[i]).css('background-color', 'pink')
        }
-
-  }
-
-
+    }
 }
 
 function keyDown(e) {
@@ -81,10 +76,6 @@ function keyDown(e) {
       updateBoard(game.board);
       game.newTile()
       break;
-    case 114:
-      console.log("R pressed")
-      startBoard();
-      break;
     case 115:
       console.log("S pressed")
       game.swipeDown();
@@ -99,6 +90,5 @@ function keyDown(e) {
 function init(){
   window.addEventListener("keypress", keyDown, false);
 }
-
 
 window.addEventListener('load', init, false);
