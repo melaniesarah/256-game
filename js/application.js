@@ -19,6 +19,8 @@ function startBoard(){
   }
 }
 
+
+
 function updateBoard(board){
   var elements = document.getElementsByClassName('box');
 
