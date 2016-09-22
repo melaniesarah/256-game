@@ -1,3 +1,5 @@
+score = 0;
+
 var Game = function(boardString) {
   this.boardMatrix = [];
   this.tempBoard = [];
@@ -19,6 +21,11 @@ var Game = function(boardString) {
   }
  }
 
+Game.prototype.userScore = function(){
+  return score;
+}
+
+
  var randomBoard = function() {
   var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   var values = [2,4];
@@ -31,7 +38,6 @@ var Game = function(boardString) {
 
     board[randLocation1] = values[Math.floor(Math.random() * 2)];
     board[randLocation2] = values[Math.floor(Math.random() * 2)];
-
     return board
  }
 
@@ -54,7 +60,8 @@ Game.prototype.newTile = function() {
 
         return this.board;
      }else{
-      alert("Game Over!!");
+      alert("The board is full, try and move else Game Over!")
+
      }
 }
 
@@ -89,9 +96,7 @@ Game.prototype.swipeLeft = function() {
 Game.prototype.swipeRight = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
-
   this.swipe();
-
   this.matrixToBoard();
 }
 
@@ -135,11 +140,13 @@ Game.prototype.swipe = function() {
 
     if (newRow[3] == newRow[2]) {
       newRow[3] = 2 * newRow[2];
+      score += (2 * newRow[2]);
       newRow.splice(2,1);
       newRow.splice(0,0,0);
 
       if (newRow[2] == newRow[1]) {
         newRow[2] = 2 * newRow[1];
+        score += (2 * newRow[1]);
         newRow.splice(1,1);
         newRow.splice(0,0,0);
 
@@ -147,11 +154,13 @@ Game.prototype.swipe = function() {
     }
     else if (newRow[2] == newRow[1]) {
       newRow[2] = 2 * newRow[1];
+        score += (2 * newRow[1]);
       newRow.splice(1,1);
       newRow.splice(0,0,0);
     }
     else if (newRow[1] == newRow[0]) {
       newRow[1] = 2 * newRow[0];
+        score += (2 * newRow[0]);
       newRow[0] = 0;
     }
     newBoard.push(newRow);
