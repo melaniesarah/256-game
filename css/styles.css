@@ -1,5 +1,5 @@
 body{
-  background-color: green;
+  background-color: snow;
 }
 
 .center{
@@ -16,5 +16,4 @@ body{
   height: 150px;
   display: inline-block;
   /*text-align: center;*/
-  /*vertical-align: center;*/
 }

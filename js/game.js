@@ -1,3 +1,5 @@
+score = 0;
+
 var Game = function(boardString) {
   this.boardMatrix = [];
   this.tempBoard = [];
@@ -19,6 +21,11 @@ var Game = function(boardString) {
   }
  }
 
+Game.prototype.userScore = function(){
+  return score;
+}
+
+
  var randomBoard = function() {
   var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   var values = [2,4];
@@ -31,35 +38,42 @@ var Game = function(boardString) {
 
     board[randLocation1] = values[Math.floor(Math.random() * 2)];
     board[randLocation2] = values[Math.floor(Math.random() * 2)];
-
     return board
  }
 
 Game.prototype.newTile = function() {
-  var values = [2,4];
-  var randLocation = Math.floor(Math.random() * 16);
-  // console.log(randLocation);
+    var elements = document.getElementsByClassName('box') ;
+    count = 0
+    for(i=0;i<elements.length; i++){
+       if(game.board[i] == 0){
+        count += 1
+       }
+     }
+     if(count >= 1){
+        var values = [2,4];
+        var randLocation = Math.floor(Math.random() * 16);
 
-  while (this.board[randLocation] != 0) {
-    randLocation = Math.floor(Math.random() * 16);
-  }
-  this.board[randLocation] = values[Math.floor(Math.random() * 2)];
+        while (this.board[randLocation] != 0) {
+          randLocation = Math.floor(Math.random() * 16);
+        }
+        this.board[randLocation] = values[Math.floor(Math.random() * 2)];
 
-  return this.board;
+        return this.board;
+     }else{
+      alert("The board is full, try and move else Game Over!")
+
+     }
 }
 
 Game.prototype.boardToMatrix = function() {
-  // this.tempBoard = this.board;
   this.boardMatrix = [];
   for (i=0; i<4; i++) {
     this.boardMatrix.push(this.tempBoard.slice((i*4), ((i+1)*4)));
   }
 }
 
-
 Game.prototype.matrixToBoard = function() {
   this.board = [].concat.apply([], this.boardMatrix )
-
 }
 
 Game.prototype.reverseRows = function() {
@@ -70,27 +84,20 @@ Game.prototype.reverseRows = function() {
   this.boardMatrix = tempMatrix
 }
 
-
 Game.prototype.swipeLeft = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
   this.reverseRows();
-
   this.swipe();
-
   this.reverseRows();
   this.matrixToBoard();
-  // this.newTile();
 }
 
 Game.prototype.swipeRight = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
-
   this.swipe();
-
   this.matrixToBoard();
-  // this.newTile();
 }
 
 
@@ -99,27 +106,19 @@ Game.prototype.swipeUp = function() {
   this.boardToMatrix();
   this.transpose();
   this.reverseRows();
-  console.log(this.boardMatrix);
-
   this.swipe();
-  console.log(this.boardMatrix);
-
   this.reverseRows();
   this.transpose();
   this.matrixToBoard();
-  // this.newTile();
 }
 
 Game.prototype.swipeDown = function() {
   this.tempBoard = this.board;
   this.boardToMatrix();
   this.transpose();
-
   this.swipe();
-
   this.transpose();
   this.matrixToBoard();
-  // this.newTile();
 }
 
 Game.prototype.swipe = function() {
@@ -141,11 +140,13 @@ Game.prototype.swipe = function() {
 
     if (newRow[3] == newRow[2]) {
       newRow[3] = 2 * newRow[2];
+      score += (2 * newRow[2]);
       newRow.splice(2,1);
       newRow.splice(0,0,0);
 
       if (newRow[2] == newRow[1]) {
         newRow[2] = 2 * newRow[1];
+        score += (2 * newRow[1]);
         newRow.splice(1,1);
         newRow.splice(0,0,0);
 
@@ -153,17 +154,17 @@ Game.prototype.swipe = function() {
     }
     else if (newRow[2] == newRow[1]) {
       newRow[2] = 2 * newRow[1];
+        score += (2 * newRow[1]);
       newRow.splice(1,1);
       newRow.splice(0,0,0);
     }
     else if (newRow[1] == newRow[0]) {
       newRow[1] = 2 * newRow[0];
+        score += (2 * newRow[0]);
       newRow[0] = 0;
     }
     newBoard.push(newRow);
-
    })
-
   this.boardMatrix = newBoard
 }
 
